@@ -18,7 +18,7 @@ import java.util.Properties;
 @Configuration
 @PropertySource("classpath:database.properties")
 @EnableTransactionManagement
-@ComponentScan(value = "task")
+@ComponentScan({"task.dao", "task.services"})
 public class HibernateConfig {
 
     private Environment env;

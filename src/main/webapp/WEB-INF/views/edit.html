@@ -7,25 +7,23 @@
 
     <body>
         <form th:method="PATCH" th:action="@{/users/{id}(id=${userShow.getId()})}" th:object="${userShow}">
-            <label for="name">Name: </label>
-            <input type="text" th:field="*{name}" id="name"/>
-            <!-- <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</div> -->
-            <br/>
+            <table border="1">
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Lastname</th>
+                    <th>Age</th>
+                    <th>Email</th>
+                </tr>
 
-            <label for="lastname">Lastname: </label>
-            <input type="text" th:field="*{lastname}" id="lastname"/>
-            <!-- <div style="color:red" th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}">Lastname Error</div> -->
-            <br/>
-
-            <label for="age">Age: </label>
-            <input type="text" th:field="*{age}" id="age"/>
-            <!-- <div style="color:red" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age Error</div> -->
-            <br/>
-
-            <label for="email">Email: </label>
-            <input type="text" th:field="*{email}" id="email"/>
-            <!-- <div style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</div> -->
-            <br/>
+                <tr>
+                    <td><a th:text="${userShow.getId()}">id</a></td>
+                    <td><input type="text" th:field="*{name}" id="name"/></td>
+                    <td><input type="text" th:field="*{lastname}" id="lastname"/></td>
+                    <td><input type="text" th:field="*{age}" id="age"/></td>
+                    <td><input type="text" th:field="*{email}" id="email"/></td>
+                </tr>
+            </table>
 
             <input type="submit" value="Update!"/>
         </form>
