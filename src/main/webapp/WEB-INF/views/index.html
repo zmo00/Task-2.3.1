@@ -3,13 +3,33 @@
 
     <head>
         <meta charset="UTF-8">
-        <title>Title</title>
+        <title>Users</title>
     </head>
 
     <body>
-        <div th:each="user : ${userList}">
-            <a th:text="${user.toString()}">user</a>
-        </div>
+        <table border="1">
+            <tr>
+                <th>Name</th>
+                <th>Lastname</th>
+                <th>Age</th>
+                <th>Email</th>
+                <th>Detail</th>
+            </tr>
+            <div th:each="user : ${userList}">
+                <tr>
+                    <td><a th:text="${user.getName()}">name</a></td>
+                    <td><a th:text="${user.getLastname()}">lastname</a></td>
+                    <td><a th:text="${user.getAge()}">age</a></td>
+                    <td><a th:text="${user.getEmail()}">email</a></td>
+                    <td><a th:href="@{/users/{id}(id=${user.getId()})}">detail</a></td>
+                </tr>
+            </div>
+        </table>
+
+        <br />
+        <hr />
+
+        <a href="/users/new">create new User</a>
     </body>
 
 </html>

@@ -7,7 +7,7 @@ public class AppConfig extends AbstractAnnotationConfigDispatcherServletInitiali
     @Override
     protected Class<?>[] getRootConfigClasses() {
         return new Class<?>[]{
-                HiberConfig.class
+                HibernateConfig.class
         };
     }
 

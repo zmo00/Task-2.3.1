@@ -19,10 +19,14 @@ import java.util.Properties;
 @PropertySource("classpath:database.properties")
 @EnableTransactionManagement
 @ComponentScan(value = "task")
-public class HiberConfig {
+public class HibernateConfig {
+
+    private Environment env;
 
     @Autowired
-    private Environment env;
+    public HibernateConfig(Environment env) {
+        this.env = env;
+    }
 
     @Bean
     public DataSource getDataSource() {
