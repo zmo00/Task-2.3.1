@@ -6,7 +6,7 @@
     </head>
 
     <body>
-        <table>
+        <table border="1">
             <tr>
                 <th>Id</th>
                 <th>Name</th>
@@ -16,7 +16,7 @@
             </tr>
 
             <tr>
-                <td><a th:text="${userShow.getId()()}">id</a></td>
+                <td><a th:text="${userShow.getId()}">id</a></td>
                 <td><a th:text="${userShow.getName()}">name</a></td>
                 <td><a th:text="${userShow.getLastname()}">lastname</a></td>
                 <td><a th:text="${userShow.getAge()}">age</a></td>
@@ -30,7 +30,9 @@
 
         <a th:href="@{/users/{id}/edit(id=${userShow.getId()})}">edit this User</a>
         <br />
-        <a th:href="@{/users/{id}/delete(id=${userShow.getId()})}">delete this User</a>
+        <form th:method="DELETE" th:action="@{/users/{id}(id=${userShow.getId()})}">
+            <input type="submit" value="Delete"/>
+        </form>
 
     </body>
 </html>
